@@ -1,4 +1,4 @@
-# vagrant-sandbox
+# playground
 
 Set up a clean Debian machine for my experiments. Does the following:
 
