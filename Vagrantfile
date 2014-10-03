@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.define "playground", primary: true do |playground|
         # Box configuration
         playground.vm.box = "vagrant-playground"
-        playground.vm.box_url = "https://www.dropbox.com/s/gr1emg8ytrtm916/vaidikslab-vagrant.box?dl=1"
+        playground.vm.box_url = "https://www.dropbox.com/s/nd9nk6v9pxnlibv/vagrant-playground.box?dl=1"
 
         # Host name
         playground.vm.host_name = ENV["hostname"] || "playground"
