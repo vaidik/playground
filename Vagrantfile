@@ -11,16 +11,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Provision using shell
     config.vm.provision "shell", path: "vagrant-setup.sh"
 
-    config.vm.define "lab", primary: true do |lab|
+    config.vm.define "playground", primary: true do |playground|
         # Box configuration
-        lab.vm.box = "vaidikslab-vagrant"
-        lab.vm.box_url = "https://www.dropbox.com/s/gr1emg8ytrtm916/vaidikslab-vagrant.box?dl=1"
+        playground.vm.box = "vagrant-playground"
+        playground.vm.box_url = "https://www.dropbox.com/s/gr1emg8ytrtm916/vaidikslab-vagrant.box?dl=1"
 
         # Host name
-        lab.vm.host_name = ENV["hostname"] || "lab"
+        playground.vm.host_name = ENV["hostname"] || "playground"
     end
 
-    config.vm.define "basebox", primary: false do |basebox|
+    config.vm.define "basebox", primary: false, autostart: false do |basebox|
         # Box configuration
         basebox.vm.box = "debian-7.3.0"
         basebox.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/debian-73-x64-virtualbox-nocm.box"
