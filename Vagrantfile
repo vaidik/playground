@@ -9,7 +9,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "/tmp/authorized_keys"
 
     # Provision using shell
-    config.vm.provision "shell", path: "vagrant-setup.sh"
+    config.vm.provision "puppet" do |puppet|
+        puppet.manifest_file = "site.pp"
+    end
 
     config.vm.define "playground", primary: true do |playground|
         # Box configuration
